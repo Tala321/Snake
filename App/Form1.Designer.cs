@@ -53,7 +53,7 @@
             this.btnMeal.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.btnMeal.FlatAppearance.BorderSize = 30;
             this.btnMeal.ForeColor = System.Drawing.Color.Cornsilk;
-            this.btnMeal.Location = new System.Drawing.Point(543, 185);
+            this.btnMeal.Location = new System.Drawing.Point(100, 100);
             this.btnMeal.Name = "btnMeal";
             this.btnMeal.Size = new System.Drawing.Size(20, 20);
             this.btnMeal.TabIndex = 1;

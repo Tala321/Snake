@@ -11,6 +11,7 @@ namespace App
         Button meal = new Button();
         Button body = new Button();
         List<Button> bodies = new List<Button>();
+        List<Keys> Pressedkeys = new List<Keys>();
 
 
         int startBodyPositionTop = 0;
@@ -37,32 +38,37 @@ namespace App
 
             if (e.KeyCode == Keys.W)
             {
+
                 changeBodyPosition(1);
-                MoveAddedBodyWithSnake(0, 10, 1);
-                btnSnake.Top -= 10;
+                MoveAddedBodyWithSnake(0, 0, 1);
+                btnSnake.Top -= 20;
                 SnakeEatMeal(btnSnake.Left, 20, 1);
+                Pressedkeys.Add(Keys.W);
             }
             if (e.KeyCode == Keys.S)
             {
                 count = 0;
-                MoveAddedBodyWithSnake(0, -10, 2);
-                btnSnake.Top += 10;
+                MoveAddedBodyWithSnake(0, 0, 2);
+                btnSnake.Top += 20;
                 SnakeEatMeal(btnSnake.Left, -20, 2);
+                Pressedkeys.Add(Keys.S);
             }
             if (e.KeyCode == Keys.D)
             {
                 count = 0;
-                MoveAddedBodyWithSnake(-10, 0, 3);
-                btnSnake.Left += 10;
+                MoveAddedBodyWithSnake(0, 0, 3);
+                btnSnake.Left += 20;
                 SnakeEatMeal(-20, btnSnake.Top, 3);
+                Pressedkeys.Add(Keys.D);
 
             }
             if (e.KeyCode == Keys.A)
             {
                 changeBodyPosition(2);
-                MoveAddedBodyWithSnake(10, 0, 4);
-                btnSnake.Left -= 10;
+                MoveAddedBodyWithSnake(0, 0, 4);
+                btnSnake.Left -= 20;
                 SnakeEatMeal(20, btnSnake.Top, 4);
+                Pressedkeys.Add(Keys.A);
             }
         }
 
@@ -162,7 +168,7 @@ namespace App
 
 
         //Add Body
-
+       int  count5=0;
         private void MoveAddedBodyWithSnake(int _left, int _top, int _keyCode)
         {
             int count = 0;
@@ -176,16 +182,30 @@ namespace App
             }
             for (var i = 1; i < bodies.Count; i++)
             {
+                //for (var t = Pressedkeys.Count; t < Pressedkeys.Count; t++)
+                //{
                 if (_keyCode == 1)
                 {
+
                     bodies[i].Left = bodies[i - 1].Left;
                     bodies[i].Top = bodies[i - 1].Top + 20;
 
                 }
                 else if (_keyCode == 2)
                 {
-                    bodies[i].Left = bodies[i - 1].Left;
-                    bodies[i].Top = bodies[i - 1].Top - 20;
+                    if (Pressedkeys[Pressedkeys.Count - 1] != Keys.S)
+                    {
+                       
+                            bodies[i].Left = bodies[i - 1].Left + 20;
+                            bodies[i].Top = bodies[i - 1].Top;
+                                                           
+                    }
+                    else
+                    {
+                        bodies[i].Left = bodies[i - 1].Left;
+                        bodies[i].Top = bodies[i - 1].Top - 20;
+                    }
+
                 }
 
                 else if (_keyCode == 3)
@@ -199,7 +219,7 @@ namespace App
                     bodies[i].Left = bodies[i - 1].Left + 20;
                     bodies[i].Top = bodies[i - 1].Top;
                 }
-
+                //}
             }
         }
 
@@ -217,8 +237,8 @@ namespace App
         // this method is for Random meal Location 
         private void RandomMealLocation()
         {
-            btnMeal.Top = new Random().Next(1, 30) * 10;
-            btnMeal.Left = new Random().Next(1, 70) * 10;
+            btnMeal.Top = new Random().Next(1, 10) * 20;
+            btnMeal.Left = new Random().Next(1, 20) * 20;
         }
     }
 }
