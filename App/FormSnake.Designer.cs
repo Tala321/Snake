@@ -1,6 +1,6 @@
 ﻿namespace App
 {
-    partial class Form1
+    partial class FormSnake
     {
         /// <summary>
         /// Required designer variable.
@@ -30,8 +30,6 @@
         {
             this.btnSnake = new System.Windows.Forms.Button();
             this.btnMeal = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnSnake
@@ -45,7 +43,6 @@
             this.btnSnake.Size = new System.Drawing.Size(20, 20);
             this.btnSnake.TabIndex = 0;
             this.btnSnake.UseVisualStyleBackColor = false;
-            this.btnSnake.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnSnake_KeyDown);
             // 
             // btnMeal
             // 
@@ -59,34 +56,19 @@
             this.btnMeal.TabIndex = 1;
             this.btnMeal.UseVisualStyleBackColor = false;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(12, 301);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(12, 337);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
-            // 
-            // Form1
+            // FormSnake
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(735, 450);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(384, 361);
             this.Controls.Add(this.btnMeal);
             this.Controls.Add(this.btnSnake);
-            this.Name = "Form1";
-            this.Text = "Snake";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyPreview = true;
+            this.Name = "FormSnake";
+            this.Text = "s";
+            this.Load += new System.EventHandler(this.FormSnake_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormSnake_KeyDown);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -94,8 +76,6 @@
 
         private System.Windows.Forms.Button btnSnake;
         private System.Windows.Forms.Button btnMeal;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
     }
 }
 
